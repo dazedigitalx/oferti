@@ -1,0 +1,201 @@
+/* Variables */
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+    --outline-border-width: 10px;
+    --outline-color-red: #e74c3c;
+    --outline-color-teal: #00fff7;
+    --outline-color-yellow: #f1c40f;
+    --outline-color-green: #2ecc71;
+    --outline-color-purple: #9b59b6;
+    --outline-color-dark-blue: #34495e;
+    --sidebar-bg-color: #f7f9fa;
+    --button-bg-color: #97c8fd;
+    --button-hover-bg-color: #0056b3;
+    --text-color-white: #ffffff;
+}
+
+/* General Layout */
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body, .main-content, .content-area, .main-layout {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Header */
+.header {
+    position: fixed; /* Keep the header fixed */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space between items */
+    color: var(--text-color-white);
+    height: var(--header-height);
+    top: 0;
+    left: 0;
+    right: 0; /* Full width */
+    background-color: #f0f0f0;
+    padding: 0 20px; /* Add some padding to the sides */
+}
+
+.header-button-container {
+    width: 100px;
+}
+
+/* Sidebar */
+.sidebar-container {
+    flex-grow: 1;
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg-color);
+    border: var(--outline-border-width) solid var(--outline-color-red);
+    padding-top: 30px;
+    position: fixed;
+    top: var(--header-height); /* Start position below the header */
+    bottom: 0; /* Ensure it stretches to the bottom */
+    transition: transform 0.3s ease;
+    overflow-y: auto; /* Allow scrolling */
+}
+
+
+.sidebar-container.closed {
+    width: 0; /* Collapse the sidebar width to 0 */
+    transform: translateX(-100%); /* Move the sidebar outside the left side of the viewport */
+
+    padding: 0; /* Remove padding to save space */
+    overflow: hidden; /* Hide any overflow content */
+    transition: width 0.3s ease; /* Smooth transition for closing */
+}
+
+
+/* Content Area */
+.content-area {
+    position: relative;
+    left: var(--sidebar-width); /* Adjust position based on sidebar width */
+    top: var(--header-height); /* Start position exactly at the bottom of the header */
+    border: var(--outline-border-width) solid var(--outline-color-purple);
+    height: calc(100vh - var(--header-height)); /* Full height minus the header */
+    width: calc(100vw - var(--sidebar-width)); /* Full width minus the sidebar */
+    overflow: hidden;
+    transition: left 0.3s ease, width 0.3s ease; /* Combined transitions */
+
+}
+
+.content-area.collapsed {
+    left: 0; /* Align to the left when collapsed */
+    width: 100vw; /* Full viewport width when sidebar is collapsed */
+
+}
+
+/* Main Layout */
+.main-layout {
+    flex-grow: 1; /* Allow main layout to take available space */
+    display: flex; /* Use flexbox to arrange chat and aside sections */
+    height: calc(100vh - var(--header-height)); /* Ensure full height minus header */
+}
+
+/* Chat Container */
+.chat-container {
+    flex-grow: 1; /* Take the remaining space */
+    overflow-y: auto; /* Allow scrolling */
+}
+
+/* Aside Section */
+.aside {
+    width: 300px; /* Fixed width for the aside section */
+    background-color: #f0f0f0; /* Light gray background */
+    border-left: 2px solid var(--outline-color-purple); /* Border for visual separation */
+}
+
+/* Footer */
+.footer {
+    padding: 16px;
+    background-color: #ffd900;
+    text-align: center;
+    border: var(--outline-border-width) solid #ffd900;
+    width: 100%;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    z-index: 2000; /* High z-index to ensure it's on top */
+}
+
+.modal-content {
+    background-color: white; /* White background for the modal */
+    padding: 20px; /* Space inside the modal */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    max-width: 500px; /* Maximum width */
+    width: 90%; /* Full width on small screens */
+}
+
+
+
+.create-channel {
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center;
+}
+
+/* Error Styling */
+.error {
+    color: red;
+    text-align: center;
+}
+
+/* Toggle Button */
+.toggle-button {
+    top: calc(var(--header-height) + 10px);
+    left: 10px;
+    width: 50px;
+    background-color: #007bff;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header {
+        margin-left: 0;
+    }
+
+    .navbar,
+    .nav-link {
+        width: 10px; /* Consider adjusting for better mobile experience */
+    }
+
+
+
+    .content-area.collapsed {
+        margin-left: 0;
+    }
+
+    .aside {
+        display: none;
+        width: 100%;
+        border-top: 10px solid #ebeef0;
+    }
+
+    .footer {
+        position: relative;
+    }
+}

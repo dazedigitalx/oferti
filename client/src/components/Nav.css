@@ -1,0 +1,62 @@
+
+/* Root variables for colors */
+/*  */
+
+/* Styling for navigation */
+.nav .nav-link {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: var(--button-border-radius);
+  font-family: var(--primary-font);
+  font-size: var(--main-font-size);
+
+}
+
+.nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  flex: 1; /* Take remaining space */
+}
+
+.nav ul li {
+  margin-right: 10px;
+}
+
+.nav ul li:last-child {
+  margin-right: 0;
+}
+
+/* Styling for navigation links */
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--hover-color);
+  color: var(--hover-text-color);
+}
+
+.nav-link.active {
+  background-color: var(--active-color);
+}
+
+.nav-link.auth-active {
+  background-color: var(--auth-active-color);
+}
+
+/* Optional: Adjust text color for active links */
+.nav-link.active,
+.nav-link.auth-active {
+  color: var(--text-color);
+}

@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "67118d61b6355fa6cb4a332a"
+  },
+  "username": "newuser",
+  "email": "newuser@example.com",
+  "password": "$2b$10$8OynVYOradxn.TsjeA7wAejfc0kT1y3/GSl/MpCptOu6s9f/rfLDy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67118dd3399b3b001856a9c4"
+  },
+  "username": "yagoda",
+  "email": "yagoda@yagoda",
+  "password": "$2b$10$bQYQv6NGKhqVOd/dBKSBSui2rfgP1O2MKgApfDy0tDcEdH2cFnJVm",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671849816cc54d48ee1bbfc1"
+  },
+  "username": "2@2",
+  "email": "2@2",
+  "password": "$2b$10$SKH01yyF.6XmLDttsGm7Qek4eBXgRePjR48iVRcBPRJzA/6SKih2S",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671beed5dde56ebd960484eb"
+  },
+  "username": "1@1",
+  "email": "1@1",
+  "password": "$2b$10$GH0ELpEFeF4qJVlo7V41qun4XW4PQSvJZlAsUxmKFSdij5JySJB3W",
+  "__v": 0
+}]

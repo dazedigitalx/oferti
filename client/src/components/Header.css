@@ -1,0 +1,62 @@
+@import './Common.css'; /* Import reusable common styles */
+
+/* Header specific styles */
+
+
+
+
+
+.UserProfile {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Left align the text */
+    font-size: 10px;
+    line-height: 0.1%; /* Set line spacing to 5px (font-size + 5px) */
+    width: 200px; /* Fixed width for alignment */
+
+}
+
+
+  
+.UserProfile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.UserProfile .username {
+    font-weight: bold;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+} 
+
+.nav-link:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+/* Example of active link */
+.nav-link.active {
+    background-color: #0056b3;
+}
+
+/* Example of auth active link */
+.nav-link.auth-active {
+    background-color: #28a745;
+}
+
+/* Navbar styles */
+
+
+/* Additional styles for responsive layout */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center; /* Center navbar items on smaller screens */
+    }
+}
