@@ -9,7 +9,7 @@ const userRouter = require('./routes/userRouter');
 const messageRouter = require('./routes/messageRouter');
 
 const PORT = process.env.PORT || 5000;
-const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'https://file-chat-client.vercel.app';
+const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'oferti.com';
 
 const app = express();
 
@@ -18,8 +18,8 @@ app.use(cors({
   origin: [
     process.env.CLIENT_URL,
     process.env.CLIENT_URL_PRODUCTION,
-    'https://file-chat-client.vercel.app',
-    'https://file-chat-server.vercel.app',
+    'oferti.com',
+    'https://oferti-server.vercel.app/',
     'http://localhost:3001',
     'http://localhost:3000',
   ],
