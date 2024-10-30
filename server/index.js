@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const channelRouter = require('./routes/channelRouter');
 const userRouter = require('./routes/userRouter');
 const messageRouter = require('./routes/messageRouter');
+const rssRouter = require('./rssRouter.js'); // Ensure this path is correct
 
 const PORT = process.env.PORT || 5000;
 const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'https://oferti-server.vercel.app/';
@@ -18,9 +19,6 @@ app.use(cors({
   origin: [
     process.env.CLIENT_URL,
     process.env.CLIENT_URL_PRODUCTION,
-    'https://oferti.com/',
-    'https://oferti-server.vercel.app/',
-    'https://oferti-client.vercel.app/',
     'http://localhost:3001',
     'http://localhost:3000',
   ],
@@ -32,11 +30,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(helmet());
 
-// Log incoming requests without undefined 'token'
+// Log incoming requests
 app.use((req, res, next) => {
   console.log(`${req.method} request for '${req.url}'`);
-  console.log('Secret:', process.env.JWT_SECRET);
-  next(); // Call the next middleware
+  next();
 });
 
 // MongoDB connection
@@ -54,6 +51,7 @@ app.use((req, res, next) => {
 app.use('/api/users', userRouter);
 app.use('/api/channel', channelRouter);
 app.use('/api/message', messageRouter);
+app.use('/api/rss', rssRouter); // Only one place to define the /api/rss route
 
 // Handle 404 Not Found
 app.use((req, res) => {
