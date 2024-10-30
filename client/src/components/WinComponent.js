@@ -123,7 +123,7 @@ const WinComponent = () => {
                         <a href={article.url} target="_blank" rel="noopener noreferrer">
                             <div className="card-content">
                                 <div className="card-image">
-                                    <img src={article.image} alt="You Are So Lucky 🍀🍀🍀" className="slot-image" />
+                                    <img src={article.image} alt="So Lucky 🍀🍀🍀" className="slot-image" />
                                 </div>
                                 <div className="card-title">{article.title}</div>
                                 <div className="card-url">{article.url}</div>
