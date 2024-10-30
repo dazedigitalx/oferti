@@ -91,6 +91,17 @@ body, .main-content, .content-area, .main-layout {
 
 }
 
+
+.content-area-full {
+    position: relative;
+    top: var(--header-height); /* Start position exactly at the bottom of the header */
+    border: var(--outline-border-width) solid var(--outline-color-purple);
+    height: calc(100vh - var(--header-height)); /* Full height minus the header */
+    overflow: hidden;
+    transition: left 0.3s ease, width 0.3s ease; /* Combined transitions */
+
+}
+
 /* Main Layout */
 .main-layout {
     flex-grow: 1; /* Allow main layout to take available space */
