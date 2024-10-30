@@ -2,10 +2,11 @@
   "name": "filemanagement",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "http://vau7t.comn",
+  "homepage": "http://oferti.com",
   "scripts": {
-    "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "author": "",

@@ -9,7 +9,7 @@ const userRouter = require('./routes/userRouter');
 const messageRouter = require('./routes/messageRouter');
 
 const PORT = process.env.PORT || 5000;
-const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'oferti.com';
+const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'https://oferti-server.vercel.app/';
 
 const app = express();
 

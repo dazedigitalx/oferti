@@ -1,10 +1,11 @@
+// src/components/Nav.js
+
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useAuth } from '../contexts/AuthContext';
 import './Nav.css';
 import '../Style.css';
-
 
 const Nav = () => {
     const { user, logout } = useAuth();
@@ -15,7 +16,6 @@ const Nav = () => {
         logout();
     };
 
-
     const isActive = (path) => {
         return location.pathname === path;
     };
@@ -23,7 +23,6 @@ const Nav = () => {
     return (
         <nav className="nav">
             <ul>
-
                 <li>
                     <Link
                         to="/dashboard"
@@ -38,6 +37,14 @@ const Nav = () => {
                         className={`nav-link ${isActive('/profile') ? (user ? 'auth-active' : 'active') : ''}`}
                     >
                         Profile
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        to="/win"  // Add the Win link
+                        className={`nav-link ${isActive('/win') ? (user ? 'auth-active' : 'active') : ''}`}
+                    >
+                        Win
                     </Link>
                 </li>
                 <li>
