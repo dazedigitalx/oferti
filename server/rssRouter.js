@@ -4,7 +4,7 @@ const axios = require('axios');
 const xml2js = require('xml2js');
 
 const router = express.Router();
-const RSS_FEED_URL = 'https://rss.app/feeds/t6iPEj4JlEDPD4Vy.xml';
+const RSS_FEED_URL = 'https://rss.app/feeds/tlHsPl1pnjpaQERv.xml';
 
 // Function to parse XML to JSON
 const parseXML = (data) => {
