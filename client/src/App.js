@@ -27,7 +27,7 @@ const App = () => {
                         <Route path="/reset-password" element={<ResetPassword />} />
                         <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
                         <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
-                        <Route path="/win" element={<PrivateRoute element={<Win />} />} /> {/* Add the Win route */}
+                        <Route path="/win" element={<Win />} /> {/* Make Win route public */}
                     </Routes>
                 </div>
             </Router>

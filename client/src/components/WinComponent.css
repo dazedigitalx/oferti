@@ -1,76 +1,43 @@
 .card-display {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 20px;
-}
-
-.spin-image {
-    margin: 0; /* Remove margin to center the image properly */
-    width: 100%; /* Adjust to 100% width of the parent container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Set a max width to prevent it from becoming too large */
-    transition: transform 0.2s; /* Smooth animation for scaling effect */
-}
-
-.spin-image:hover {
-    transform: scale(1.05); /* Scale up slightly on hover for a visual effect */
-}
-
-
-.spin-button {
-    margin-bottom: 20px;
-}
-
-.spin-button button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.spin-button button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: calc(100vh - 140px); /* Adjust the height according to your header height */
 }
 
 .cards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin: 20px; /* Space around the cards */
+    background-color: aqua;
+
 }
 
 .card-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    width: 300px; /* Adjust width as needed */
-    text-align: center;
+    /* Define your card dimensions */
+    width: 300px; /* Fixed width */
+    height: 400px; /* Fixed height */
+    margin: 10px; /* Space between cards */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 8px; /* Optional rounded corners */
+    overflow: hidden; /* Clip overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    text-align: center; /* Center text */
 }
 
-.card-image {
-    margin-bottom: 10px;
+.card-image img {
+    width: 100%; /* Fill the card */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.card-title {
-    font-weight: bold;
-    margin-bottom: 5px;
+.spin-image-container {
+    margin-top: 20px; /* Space above the spin image */
+    display: flex; /* Center the image within the container */
+    justify-content: center; /* Center horizontally */
 }
 
-.card-url {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.card-url:hover {
-    text-decoration: underline;
-}
-
-.spin-gif {
-    width: 100px; /* Adjust size as needed */
-    height: auto;
+.spin-image {
+    transition: transform 0.2s; /* Optional: add some animation */
 }

@@ -1,28 +1,24 @@
 // src/components/Win.js
 
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
 import Sidebar from './Sidebar';
 import Header from './Header';
-import WinComponent from './WinComponent'; // Import the WinComponent for the slot machinea
+import WinComponent from './WinComponent'; // Import the WinComponent for the slot machine
 import './Win.css'; // Ensure you have the styles defined here
 import './Common.css';
 
 const Win = () => {
-    const { user } = useAuth(); // User authentication context
     const [isSidebarOpen, setSidebarOpen] = useState(false); // Sidebar visibility state (closed by default)
     const [activeChannel, setActiveChannel] = useState(null); // Active chat channel
     const noMessagesMessage = "No messages available."; // Message for no chat
 
-    // Load the last used channel from localStorage if the user is authenticated
+    // Load the last used channel from localStorage if available
     useEffect(() => {
-        if (user) {
-            const lastChannelId = localStorage.getItem('lastUsedChannelId');
-            if (lastChannelId) {
-                setActiveChannel({ _id: lastChannelId }); // Set last used channel as active
-            }
+        const lastChannelId = localStorage.getItem('lastUsedChannelId');
+        if (lastChannelId) {
+            setActiveChannel({ _id: lastChannelId }); // Set last used channel as active
         }
-    }, [user]);
+    }, []);
 
     // Toggle sidebar visibility
     const toggleSidebar = () => {
@@ -53,8 +49,6 @@ const Win = () => {
         };
     }, []);
 
-    const isAuthenticated = !!user; // Check if user is authenticated
-
     return (
         <div className="main-content">
             {/* Sidebar */}
@@ -80,7 +74,6 @@ const Win = () => {
                     <main className="content-container">
                         {activeChannel ? (
                             <div className="content-content">
-                                <div className="content-header">Top Oferti {activeChannel.name}</div>
                                 {/* Load the WinComponent here for the slot machine interface */}
                                 <WinComponent />
                             </div>
@@ -94,11 +87,7 @@ const Win = () => {
                     </aside>
                 </div>
 
-                {!isAuthenticated && (
-                    <footer className="footer">
-                        <p className="mb-2">You're not logged in. Log in to get the full experience.</p>
-                    </footer>
-                )}
+                {/* Removed the authentication footer message */}
             </div>
         </div>
     );
