@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
 
         // Map the entries to the desired structure
         const mappedArticles = articles.map(item => ({
-            title: item.title?._ || 'No title', // Accessing title
+            title: item.title?._ || '', // Accessing title
             description: item.description?._ || 'No description available', // Accessing description
             url: item.link || '#', // Accessing URL
             guid: item.guid?._ || 'No GUID available', // Accessing GUID

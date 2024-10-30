@@ -20,6 +20,22 @@
     height: 100%; /* Full height */
 }
 
+.initial-title {
+    display: flex; /* Use flexbox to align children side by side */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: absolute; /* Position it above the card */
+    top: 20px; /* Adjust as necessary */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    z-index: 10; /* Ensure it's above other content */
+    background-color: black;
+    color: white;
+
+}
+
+
+
 .title-container {
     display: flex; /* Use flexbox to align children side by side */
     align-items: center; /* Center items vertically */
