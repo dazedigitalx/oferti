@@ -1,7 +1,6 @@
 // src/components/Win.js
 
 import React, { useState, useEffect } from 'react';
-import Sidebar from './Sidebar';
 import Header from './Header';
 import WinComponent from './WinComponent'; // Import the WinComponent for the slot machine
 import './Win.css'; // Ensure you have the styles defined here
@@ -51,14 +50,7 @@ const Win = () => {
 
     return (
         <div className="main-content">
-            {/* Sidebar */}
-            <div className={`sidebar-container ${isSidebarOpen ? '' : 'closed'}`}>
-                <Sidebar
-                    isSidebarOpen={isSidebarOpen}
-                    toggleSidebar={toggleSidebar}
-                    onChannelSelect={handleChannelSelect}
-                />
-            </div>
+
 
             {/* Main content area */}
             <div className={`content-area ${isSidebarOpen ? 'expanded' : 'collapsed'}`}>

@@ -1,9 +1,22 @@
 .card-display {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
+    justify-content: center; /* Center all children horizontally */
+    align-items: center; /* Center all children vertically */
     height: calc(100vh - 140px); /* Adjust the height according to your header height */
+    position: relative; /* Allow for absolute positioning of side GIFs */
+    background-size: cover; /* Ensure background covers the area */
+}
+
+.gif-container {
+    display: flex;
+    align-items: center; /* Center GIF vertically */
+    position: relative; /* Positioning relative to the card-display */
+}
+
+.side-gif-left,
+.side-gif-right {
+    width: 100hv; /* Set a fixed width for GIFs */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .cards {
@@ -11,15 +24,14 @@
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
     margin: 20px; /* Space around the cards */
-    background-color: aqua;
-
+    background-color: aqua; /* Optional: you can change this as needed */
+    position: relative; /* Relative for positioning */
 }
 
 .card-container {
-    /* Define your card dimensions */
     width: 300px; /* Fixed width */
     height: 400px; /* Fixed height */
-    margin: 10px; /* Space between cards */
+    margin: 10px 0; /* Space between cards; no left/right margin */
     border: 1px solid #ccc; /* Optional border */
     border-radius: 8px; /* Optional rounded corners */
     overflow: hidden; /* Clip overflow */
@@ -36,20 +48,21 @@
     margin-top: 20px; /* Space above the spin image */
     display: flex; /* Center the image within the container */
     justify-content: center; /* Center horizontally */
+    width: 100%; /* Full width of the container */
+    cursor: pointer; /* Change cursor to pointer */
 }
 
 .spin-image {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Optional: set a maximum width if desired */
     transition: transform 0.2s; /* Optional: add some animation */
 }
 
-.side-gif-left {
-    left: 0; /* Move further to the left */
+.spin-image:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
 }
 
-.side-gif.right {
-    right: 5%; /* Move further to the right */
+.spinning-gif {
+    width: 50px;
 }
-
-
-
-

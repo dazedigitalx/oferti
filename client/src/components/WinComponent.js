@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './WinComponent.css';
+import './WinComponent.css';  // Ensure this imports your CSS file
 import axios from 'axios';
 import spinImage from '../assets/images/vacationMode.gif';
 import loadingGif from '../assets/images/loading.gif';
@@ -101,9 +101,14 @@ const WinComponent = () => {
 
     return (
         <div className="card-display" style={{ backgroundImage: `url(${backgroundGifs[currentGifIndex].path})` }}>
-            {spinning && <img src={sideGifPath} alt="Left Spin" className="side-gif left" />}
-            {spinning && <img src={sideGifPath} alt="Right Spin" className="side-gif right" />}
+            {/* Left Spinning GIF */}
+            <div className="gif-container">
+                {spinning && (
+                    <img src={sideGifPath} alt="Left Spin" className="side-gif-left" />
+                )}
+            </div>
 
+            {/* Main Card Section */}
             <div className="cards">
                 {loading ? (
                     <img src={loadingGif} alt="Loading..." className="loading-gif" />
@@ -126,12 +131,21 @@ const WinComponent = () => {
                         </a>
                     </div>
                 )}
-                {spinning && <img src={spinningGif} alt="Spinning..." className="spinning-gif" />}
+                {spinning && (
+                    <img src={spinningGif} alt="Spinning..." className="spinning-gif" />
+                )}
                 <div className="gif-filename">
                     {article && article.image ? `Article: ${article.image}` : `Article: None`}
                 </div>
                 {spinning && (
                     <div className="gif-filename">{`Left GIF: spin_side.gif | Right GIF: spin_side.gif`}</div>
+                )}
+            </div>
+
+            {/* Right Spinning GIF */}
+            <div className="gif-container">
+                {spinning && (
+                    <img src={sideGifPath} alt="Right Spin" className="side-gif-right" />
                 )}
             </div>
         </div>
