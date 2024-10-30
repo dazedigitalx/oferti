@@ -3,7 +3,8 @@ import './WinComponent.css';  // Ensure this imports your CSS file
 import axios from 'axios';
 import spinImage from '../assets/images/vacationMode.gif';
 import loadingGif from '../assets/images/loading.gif';
-import spinningGif from '../assets/images/loading.gif';
+import sideGifPath from '../assets/images/spin_side.gif';
+import titleBackgroundGif from '../assets/images/titleBackground.gif'; // Import the background GIF for the title
 
 const importAll = (r) => r.keys().map((file) => ({
     path: r(file),
@@ -11,7 +12,6 @@ const importAll = (r) => r.keys().map((file) => ({
 }));
 
 const randomGifs = importAll(require.context('../assets/images/vacationGifs', false, /\.(gif|png|jpe?g)$/));
-const sideGifPath = require('../assets/images/spin_side.gif');
 
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -29,12 +29,14 @@ const WinComponent = () => {
     const [articles, setArticles] = useState([]);
     const [backgroundGifs, setBackgroundGifs] = useState(shuffleArray([...randomGifs]));
     const [currentGifIndex, setCurrentGifIndex] = useState(0);
+    const [spinEnded, setSpinEnded] = useState(false); // New state to track if spin ended
 
     let intervalId;
 
     const loadArticles = async () => {
         setLoading(true);
         setSpinning(true);
+        setSpinEnded(false); // Reset spin ended when loading articles
         selectNextGif();
 
         try {
@@ -44,7 +46,9 @@ const WinComponent = () => {
             if (articlesArray.length > 0) {
                 setArticles(articlesArray);
                 selectRandomArticle(articlesArray);
-                setBackgroundGifs([spinningGif, ...backgroundGifs]);
+
+                // Adding background GIF to the array (optional)
+                setBackgroundGifs([sideGifPath, ...backgroundGifs]);
 
                 intervalId = setInterval(() => {
                     selectRandomArticle(articlesArray);
@@ -54,6 +58,7 @@ const WinComponent = () => {
                     clearInterval(intervalId);
                     selectRandomArticle(articlesArray);
                     setSpinning(false);
+                    setSpinEnded(true); // Set spin ended to true
                     selectNextGif();
                 }, 5000);
             } else {
@@ -89,6 +94,7 @@ const WinComponent = () => {
         setLoading(false);
         setError(null);
         setSpinning(false);
+        setSpinEnded(false); // Reset spin ended
         selectNextGif();
         if (intervalId) clearInterval(intervalId);
     };
@@ -99,6 +105,11 @@ const WinComponent = () => {
         };
     }, [intervalId]);
 
+    // Extract the media content URL
+    const getMediaContentUrl = (article) => {
+        return article["media:content"]?.["$"]?.url || ''; // Use optional chaining
+    };
+
     return (
         <div className="card-display" style={{ backgroundImage: `url(${backgroundGifs[currentGifIndex].path})` }}>
             {/* Left Spinning GIF */}
@@ -107,6 +118,22 @@ const WinComponent = () => {
                     <img src={sideGifPath} alt="Left Spin" className="side-gif-left" />
                 )}
             </div>
+
+{/* Title Section */}
+{spinEnded && (
+    <div className="title-container">
+        {/* Left Div for GIF Image */}
+        <div className="title-gif-container">
+            {/* Background will be set in CSS, no need for inline styles */}
+        </div>
+        {/* Right Div for Title */}
+        <div className="text-container">
+            <h2>Click the link below to claim your prize!</h2>
+        </div>
+    </div>
+)}
+
+
 
             {/* Main Card Section */}
             <div className="cards">
@@ -119,26 +146,18 @@ const WinComponent = () => {
                         <img src={spinImage} alt="Spin" className="spin-image" onClick={handleSpinImageClick} />
                     </div>
                 ) : (
-                    <div className="card-container" onClick={handleCardClick}>
+                    <div 
+                        className="card-container" 
+                        onClick={handleCardClick} 
+                        style={{ backgroundImage: `url(${getMediaContentUrl(article)})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }} // Set background image for the card
+                    >
                         <a href={article.url} target="_blank" rel="noopener noreferrer">
                             <div className="card-content">
-                                <div className="card-image">
-                                    <img src={article.image} alt="So Lucky 🍀🍀🍀" className="slot-image" />
-                                </div>
                                 <div className="card-title">{article.title}</div>
                                 <div className="card-url">{article.url}</div>
                             </div>
                         </a>
                     </div>
-                )}
-                {spinning && (
-                    <img src={spinningGif} alt="Spinning..." className="spinning-gif" />
-                )}
-                <div className="gif-filename">
-                    {article && article.image ? `Article: ${article.image}` : `Article: None`}
-                </div>
-                {spinning && (
-                    <div className="gif-filename">{`Left GIF: spin_side.gif | Right GIF: spin_side.gif`}</div>
                 )}
             </div>
 

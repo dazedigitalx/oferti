@@ -2,16 +2,52 @@
     display: flex;
     justify-content: center; /* Center all children horizontally */
     align-items: center; /* Center all children vertically */
-    height: calc(100vh - 140px); /* Adjust the height according to your header height */
+    height: 100vh; /* Use full viewport height */
     position: relative; /* Allow for absolute positioning of side GIFs */
-    background-size: cover; /* Ensure background covers the area */
+    background-repeat: repeat; /* Repeat the background image */
+    background-size: auto; /* Keep the original size of the image */
+    width: 100%; /* Full width */
 }
+
 
 .gif-container {
     display: flex;
     align-items: center; /* Center GIF vertically */
     position: relative; /* Positioning relative to the card-display */
+    background-repeat: repeat; /* Repeat the background image */
+    background-size: auto; /* Keep the original size of the image */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
 }
+
+.title-container {
+    display: flex; /* Use flexbox to align children side by side */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: absolute; /* Position it above the card */
+    top: 20px; /* Adjust as necessary */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    z-index: 10; /* Ensure it's above other content */
+    background-color: black;
+}
+
+.title-gif-container {
+    width: 100px; /* Fixed width for the GIF container */
+    height: 50px; /* Adjust the height as necessary */
+    background-image: url('../assets/images/titleBackground.gif'); /* Use the imported GIF as a background */
+    background-size: cover; /* Ensure the background covers the entire container */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    margin-right: 10px; /* Space between the GIF and the title */
+}
+
+
+.text-container {
+    color: white; /* Change text color for readability */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Make the text bold */
+}
+
 
 .side-gif-left,
 .side-gif-right {
@@ -25,12 +61,32 @@
     align-items: center; /* Center items horizontally */
     margin: 20px; /* Space around the cards */
     background-color: aqua; /* Optional: you can change this as needed */
+    width: 100%;
     position: relative; /* Relative for positioning */
 }
 
+.text-container {
+    color: white; /* Change text color for readability */
+    text-align: left; /* Align text to the left */
+    font-weight: bold; /* Make the text bold */
+}
+
+.title-container {
+    display: flex; /* Use flexbox to align children side by side */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: absolute; /* Position it above the card */
+    top: 20px; /* Adjust as necessary */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    z-index: 10; /* Ensure it's above other content */
+}
+
+
+
 .card-container {
     width: 300px; /* Fixed width */
-    height: 400px; /* Fixed height */
+    height: 300px; /* Fixed height */
     margin: 10px 0; /* Space between cards; no left/right margin */
     border: 1px solid #ccc; /* Optional border */
     border-radius: 8px; /* Optional rounded corners */
@@ -45,7 +101,6 @@
 }
 
 .spin-image-container {
-    margin-top: 20px; /* Space above the spin image */
     display: flex; /* Center the image within the container */
     justify-content: center; /* Center horizontally */
     width: 100%; /* Full width of the container */
