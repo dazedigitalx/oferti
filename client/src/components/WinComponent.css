@@ -41,3 +41,15 @@
 .spin-image {
     transition: transform 0.2s; /* Optional: add some animation */
 }
+
+.side-gif-left {
+    left: 0; /* Move further to the left */
+}
+
+.side-gif.right {
+    right: 5%; /* Move further to the right */
+}
+
+
+
+

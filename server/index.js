@@ -11,6 +11,7 @@ const rssRouter = require('./rssRouter.js'); // Ensure this path is correct
 
 const PORT = process.env.PORT || 5000;
 const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'https://oferti-server.vercel.app/';
+const RSS_FEED_URL = process.env.RSS_FEED_URL;
 
 const app = express();
 
@@ -70,6 +71,7 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(`Allowed client URL is ${CLIENT_URL}`);
+  console.log(`RSS_FEED_URL ${RSS_FEED_URL}`);
 });
 
 // Root endpoint

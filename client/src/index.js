@@ -9,6 +9,7 @@ import axiosInstance from './API/axiosInstance';
 // Log environment variables for debugging
 console.log('Using environment:', process.env.NODE_ENV);
 console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+
 console.log('CLIENT_URL:', process.env.CLIENT_URL); // Example for additional API URLs
 console.log('API_URL:', process.env.API_URL); // Example for additional API URLs
 
