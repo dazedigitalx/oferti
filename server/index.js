@@ -12,6 +12,8 @@ const rssRouter = require('./rssRouter.js'); // Ensure this path is correct
 const PORT = process.env.PORT || 5000;
 const CLIENT_URL = process.env.CLIENT_URL_PRODUCTION || 'https://oferti-server.vercel.app/';
 const RSS_FEED_URL = process.env.RSS_FEED_URL;
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+
 
 const app = express();
 
