@@ -18,8 +18,9 @@ app.use(cors({
   origin: [
     process.env.CLIENT_URL,
     process.env.CLIENT_URL_PRODUCTION,
-    'oferti.com',
+    'https://oferti.com/',
     'https://oferti-server.vercel.app/',
+    'https://oferti-client.vercel.app/',
     'http://localhost:3001',
     'http://localhost:3000',
   ],

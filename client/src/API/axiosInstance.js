@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 // Retrieve REACT_APP_API_URL from environment variables
-const API_URL = process.env.REACT_APP_API_URL || 'https://oferti-server.vercel.app/'; // Fallback for local development
+const API_URL = process.env.REACT_APP_API_URL || 'https://oferti-server.vercel.app'; // Fallback for local development
 
 // Debugging line to ensure API_URL is set
 console.log('API_URL:', API_URL); // Log API_URL for debugging
