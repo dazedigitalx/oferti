@@ -1,139 +1,81 @@
-.card-display {
-    display: flex;
-    justify-content: center; /* Center all children horizontally */
-    align-items: center; /* Center all children vertically */
-    height: 100vh; /* Use full viewport height */
-    position: relative; /* Allow for absolute positioning of side GIFs */
-    background-repeat: repeat; /* Repeat the background image */
-    background-size: auto; /* Keep the original size of the image */
-    width: 100%; /* Full width */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height */
+    background-size: cover; /* Cover background */
+    background-position: center; /* Center background */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
-
-.gif-container {
+.articles {
     display: flex;
-    align-items: center; /* Center GIF vertically */
-    position: relative; /* Positioning relative to the card-display */
-    background-repeat: repeat; /* Repeat the background image */
-    background-size: auto; /* Keep the original size of the image */
-    width: 100%; /* Full width */
+    justify-content: center; /* Center articles */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Ensure it spans the full width */
     height: 100%; /* Full height */
 }
 
-.initial-title {
-    display: flex; /* Use flexbox to align children side by side */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    position: absolute; /* Position it above the card */
-    top: 20px; /* Adjust as necessary */
-    left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    z-index: 10; /* Ensure it's above other content */
-    background-color: black;
-    color: white;
-
-}
-
-
-
-.title-container {
-    display: flex; /* Use flexbox to align children side by side */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    position: absolute; /* Position it above the card */
-    top: 20px; /* Adjust as necessary */
-    left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    z-index: 10; /* Ensure it's above other content */
-    background-color: black;
-}
-
-.title-gif-container {
-    width: 100px; /* Fixed width for the GIF container */
-    height: 50px; /* Adjust the height as necessary */
-    background-image: url('../assets/images/titleBackground.gif'); /* Use the imported GIF as a background */
-    background-size: cover; /* Ensure the background covers the entire container */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-    margin-right: 10px; /* Space between the GIF and the title */
-}
-
-
-.text-container {
-    color: white; /* Change text color for readability */
-    text-align: left; /* Align text to the left */
-    font-weight: bold; /* Make the text bold */
-}
-
-
-.side-gif-left,
-.side-gif-right {
-    width: 100hv; /* Set a fixed width for GIFs */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.cards {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    margin: 20px; /* Space around the cards */
-    background-color: aqua; /* Optional: you can change this as needed */
-    width: 100%;
-    position: relative; /* Relative for positioning */
-}
-
-.text-container {
-    color: white; /* Change text color for readability */
-    text-align: left; /* Align text to the left */
-    font-weight: bold; /* Make the text bold */
-}
-
-.title-container {
-    display: flex; /* Use flexbox to align children side by side */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
-    position: absolute; /* Position it above the card */
-    top: 20px; /* Adjust as necessary */
-    left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    z-index: 10; /* Ensure it's above other content */
-}
-
-
-
-.card-container {
-    width: 300px; /* Fixed width */
-    height: 300px; /* Fixed height */
-    margin: 10px 0; /* Space between cards; no left/right margin */
-    border: 1px solid #ccc; /* Optional border */
-    border-radius: 8px; /* Optional rounded corners */
-    overflow: hidden; /* Clip overflow */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow */
+.article-card {
+    position: relative;
+    width: 80%; /* Set width to 80% */
+    max-width: 600px; /* Maximum width */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
     text-align: center; /* Center text */
 }
 
-.card-image img {
-    width: 100%; /* Fill the card */
-    height: auto; /* Maintain aspect ratio */
+.placeholder-card {
+    position: relative;
+    border-radius: 8px; /* Rounded corners */
 }
 
-.spin-image-container {
-    display: flex; /* Center the image within the container */
-    justify-content: center; /* Center horizontally */
-    width: 100%; /* Full width of the container */
-    cursor: pointer; /* Change cursor to pointer */
-}
-
-.spin-image {
+.placeholder-image {
     width: 100%; /* Full width */
     height: auto; /* Maintain aspect ratio */
-    max-width: 300px; /* Optional: set a maximum width if desired */
-    transition: transform 0.2s; /* Optional: add some animation */
 }
 
-.spin-image:hover {
-    transform: scale(1.05); /* Slightly scale up on hover */
+.article-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 1rem;
+    border-radius: 8px;
+    pointer-events: none; /* Prevent clicks during cycling */
 }
 
-.spinning-gif {
-    width: 50px;
+.cycling-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%; /* Full height */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.cycling-article {
+    flex: 0 0 100%; /* Each article takes full height */
+    box-sizing: border-box; /* Include padding and borders */
+    display: flex;
+    justify-content: center; /* Center content */
+    align-items: center; /* Center content */
+    padding: 1rem; /* Add some padding */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+.cycling-image {
+    width: auto; /* Allow width to be determined by max-height */
+    max-width: 80%; /* Limit width to 80% of the container */
+    max-height: 80%; /* Set a max height to prevent overflow */
+    object-fit: cover; /* Cover ensures the image fills the space */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 1rem; /* Space below the image */
 }
