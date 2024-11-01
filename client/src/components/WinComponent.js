@@ -113,7 +113,7 @@ const WinComponent = () => {
                     {/* Placeholder Card */}
                     <div className="placeholder-card" style={{ opacity: isClicked ? 0.5 : 1 }}>
                         <img src={placeholderImage} alt="Placeholder" className="placeholder-image" />
-                        <p>Click to win articles...</p>
+                        <p>Click to win </p>
                     </div>
                     {/* Article Content Overlay */}
                     {isClicked && (
